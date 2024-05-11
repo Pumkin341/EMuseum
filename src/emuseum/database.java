@@ -8,7 +8,7 @@ public class database {
     private Connection con;
     private Statement stmt;
 
-    private database() {
+    database() {
         try {
             String url = "jdbc:mysql://localhost:3306/museum";
             String username = "root";
@@ -25,7 +25,7 @@ public class database {
 
     public void view() {
         try {
-            String insertquery = "select * from tickets";
+            String insertquery = "select * from ticket_types";
             ResultSet result = stmt.executeQuery(insertquery);
             if (result.next()) {
                 System.out.println("Value " + result.getString(2));

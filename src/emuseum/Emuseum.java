@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
+
 
 class GUIButtons extends JFrame {
 
@@ -16,49 +16,59 @@ class GUIButtons extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        setLayout(new GridLayout(5, 1));
+        setLayout(new GridLayout(6, 1));
 
-        JButton btn1 = new JButton("Sell Ticket");
-        JButton btn2 = new JButton("Reserve Ticket");
-        JButton btn3 = new JButton("Gallery");
-        JButton btn4 = new JButton("Summary");
-        JButton btn5 = new JButton("Exit");
+        JButton btn1 = new JButton("Sell Tickets");
+        JButton btn2 = new JButton("Add ticket type");
+        JButton btn3 = new JButton("Reserve Ticket");
+        JButton btn4 = new JButton("Gallery");
+        JButton btn5 = new JButton("Summary");
+        JButton btn6 = new JButton("Exit");
 
         add(btn1);
         add(btn2);
         add(btn3);
         add(btn4);
         add(btn5);
+        add(btn6);
 
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new SellTickets();
+                new SellTicketsFrame();
             }
         });
 
         btn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ReserveTicket();
+                new AddTicketTypeFrame();
             }
         });
+           
 
         btn3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Gallery();
+                new ReserveTicketFrame();
             }
         });
 
         btn4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Summary();
+                new GalleryFrame();
             }
         });
 
         btn5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new SummaryFrame();
+            }
+        });
+
+        btn6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
@@ -73,8 +83,5 @@ public class Emuseum {
 
     public static void main(String[] args) {
         new GUIButtons();
-
-        database db = database.getInstance();
-        db.view();
     }
 }
