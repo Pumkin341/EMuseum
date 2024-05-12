@@ -5,13 +5,12 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.*;
-import java.util.ArrayList;
 
 public class SellTicketsFrame extends JFrame {
 
     private JPanel panel = new JPanel();
     private JLabel titleLabel = new JLabel("Ticket Sales");
-    private JButton printBtn = new JButton("Print");
+    private JButton printBtn = new JButton("Pay");
     private JButton exitBtn = new JButton("Exit");
     private JPanel southPanel = new JPanel();
     private JButton calculateBtn = new JButton("Calculate Price");
@@ -107,6 +106,7 @@ public class SellTicketsFrame extends JFrame {
         reductionPanel.add(reduction3);
         centerPanel.add(reductionPanel);
 
+
         // tax panel
         taxPanel.add(taxLabel);
         taxPanel.add(tax1);
@@ -122,10 +122,7 @@ public class SellTicketsFrame extends JFrame {
         //checkout table
         JScrollPane scrollPane2 = new JScrollPane(tableTickets);
         centerPanel.add(scrollPane2);
-
-        //delete row button
-        
-
+    
         //event listeners
 
         checkoutBtn.addActionListener(e -> addToCart());
@@ -134,12 +131,50 @@ public class SellTicketsFrame extends JFrame {
         printBtn.addActionListener(e -> printTicket());
         deleteBtn.addActionListener(e -> deleteRow());
 
+        // event listeners
+        hours1.addActionListener(e -> {
+            hours2.setSelected(false);
+        });
+
+        hours2.addActionListener(e -> {
+            hours1.setSelected(false);
+        });
+
+        reduction1.addActionListener(e -> {
+            reduction2.setSelected(false);
+            reduction3.setSelected(false);
+        });
+
+        reduction2.addActionListener(e -> {
+            reduction1.setSelected(false);
+            reduction3.setSelected(false);
+        });
+
+        reduction3.addActionListener(e -> {
+            reduction1.setSelected(false);
+            reduction2.setSelected(false);
+        });
+
+        tax1.addActionListener(e -> {
+            tax2.setSelected(false);
+        });
+
+        tax2.addActionListener(e -> {
+            tax1.setSelected(false);
+        });
+
         setVisible(true);
     }
 
     public void printTicket(){
+        if (totalField.getText().equals(""))  {
+            JOptionPane.showMessageDialog(this, "Total price is empty");
+            return;
+        }
 
-
+        DefaultTableModel model = (DefaultTableModel) tableTickets.getModel();
+        new CheckoutFrame(model, totalField);
+        dispose();
     }
 
 
@@ -198,8 +233,8 @@ public class SellTicketsFrame extends JFrame {
     }
 
     public String getHours() {
-        if (hours1.isSelected()) return "9-17";
-        if (hours2.isSelected()) return "17-20";
+        if (hours1.isSelected()) return new String("9-17");
+        if (hours2.isSelected()) return new String("17-20");
         return "";
     }
 
