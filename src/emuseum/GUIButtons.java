@@ -19,7 +19,7 @@ class GUIButtons extends JFrame {
 
         JButton btn1 = new JButton("Sell Tickets");
         JButton btn2 = new JButton("Add ticket type");
-        JButton btn3 = new JButton("Reserve Ticket");
+        JButton btn3 = new JButton("Reservations");
         JButton btn4 = new JButton("Gallery");
         JButton btn5 = new JButton("Summary");
         JButton btn6 = new JButton("Exit");
