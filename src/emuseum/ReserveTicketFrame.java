@@ -82,8 +82,6 @@ public class ReserveTicketFrame extends JFrame {
         exitBtn.addActionListener(e -> dispose());
 
         loadTable();
-
-        setVisible(true);
     }
 
     public void loadTable(){

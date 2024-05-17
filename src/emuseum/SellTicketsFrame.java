@@ -162,8 +162,6 @@ public class SellTicketsFrame extends JFrame {
         tax2.addActionListener(e -> {
             tax1.setSelected(false);
         });
-
-        setVisible(true);
     }
 
     public void printTicket(){

@@ -61,8 +61,6 @@ public class AddTicketTypeFrame extends JFrame {
         exitBtn.addActionListener(e -> {
             dispose();
         });
-
-        setVisible(true);
     }
 
     public void addTicketType() {

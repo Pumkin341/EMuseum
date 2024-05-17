@@ -62,8 +62,6 @@ public class GalleryFrame extends JFrame{
         exitBtn.addActionListener(e -> {
             dispose();
         });
-        
-        setVisible(true);
     }
 
     public void editItem() {

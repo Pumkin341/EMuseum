@@ -8,6 +8,10 @@ import java.awt.event.ActionListener;
 class GUIButtons extends JFrame {
 
     public static GalleryFrame galleryFrame;
+    public static SellTicketsFrame sellTicketsFrame;
+    public static AddTicketTypeFrame addTicketTypeFrame;
+    public static ReserveTicketFrame reserveTicketFrame;
+    public static SummaryFrame summaryFrame;
     public GUIButtons(int admin) {
 
         setTitle("eMuseum");
@@ -34,14 +38,16 @@ class GUIButtons extends JFrame {
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new SellTicketsFrame();
+                sellTicketsFrame = new SellTicketsFrame();
+                sellTicketsFrame.setVisible(true);
             }
         });
 
         btn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new AddTicketTypeFrame();
+                addTicketTypeFrame = new AddTicketTypeFrame();
+                addTicketTypeFrame.setVisible(true);
             }
         });
            
@@ -49,7 +55,8 @@ class GUIButtons extends JFrame {
         btn3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ReserveTicketFrame();
+                reserveTicketFrame = new ReserveTicketFrame();
+                reserveTicketFrame.setVisible(true);
             }
         });
 
@@ -64,7 +71,8 @@ class GUIButtons extends JFrame {
         btn5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new SummaryFrame();
+                summaryFrame = new SummaryFrame();
+                summaryFrame.setVisible(true);
             }
         });
 

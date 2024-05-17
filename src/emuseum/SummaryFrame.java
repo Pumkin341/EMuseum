@@ -61,7 +61,6 @@ public class SummaryFrame extends JFrame {
         panel.add(exitBtn, BorderLayout.SOUTH);
         exitBtn.addActionListener(e -> dispose());
 
-        setVisible(true);
 
     }
 
