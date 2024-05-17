@@ -59,7 +59,7 @@ public class CheckoutFrame extends JFrame {
                 totalNumberOftickets += (int) model.getValueAt(i, 1);
             }
 
-            String insertQueryOrders = "INSERT INTO orders (amount, total_price, payment_method) VALUES (0, "
+            String insertQueryOrders = "INSERT INTO orders (amount, total_price, payment_method) VALUES ("
                     + totalNumberOftickets + ", " + totalPrice + " , '" + paymentMethod + "')";
             db.getStatement().executeUpdate(insertQueryOrders);
         } catch (SQLException ex) {

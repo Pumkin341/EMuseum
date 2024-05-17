@@ -119,6 +119,11 @@ public class ReserveTicketFrame extends JFrame {
             String hours = hoursRadioButton1.isSelected() ? "9-17" : "17-20";
             int numberOfTickets = Integer.parseInt(numberField.getText());
 
+            if( name.equals("") || phoneNumber.equals("") || email.equals("") || date.equals("") || numberOfTickets == 0){
+                JOptionPane.showMessageDialog(this, "All fields must be filled.");
+                return;
+            }
+
             if(numberOfTickets >= 5){
                 JOptionPane.showMessageDialog(this, "Number of tickets must be less than 5.");
                 return;
