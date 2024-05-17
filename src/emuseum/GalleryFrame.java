@@ -4,7 +4,6 @@ import java.awt.*;
 import java.sql.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 public class GalleryFrame extends JFrame{
     
@@ -65,10 +64,6 @@ public class GalleryFrame extends JFrame{
         });
         
         setVisible(true);
-    }
-
-    public TableModel getTableModel(){
-        return table.getModel();
     }
 
     public void editItem() {
