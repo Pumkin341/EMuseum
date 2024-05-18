@@ -46,8 +46,8 @@ public class CheckoutFrame extends JFrame {
         JButton exitBtn = new JButton("Exit");
         southPanel.add(exitBtn);
 
-        checkoutBtn.addActionListener(e -> checkout("cash"));
-        checkoutBtn2.addActionListener(e -> checkout("card"));
+        checkoutBtn.addActionListener(e -> checkout("Cash"));
+        checkoutBtn2.addActionListener(e -> checkout("Card"));
         exitBtn.addActionListener(e -> dispose());
 
         setVisible(true);
