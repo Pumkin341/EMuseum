@@ -22,7 +22,7 @@ class GUIButtons extends JFrame {
         setLayout(new GridLayout(6, 1));
 
         JButton btn1 = new JButton("Sell Tickets");
-        JButton btn2 = new JButton("Add ticket type");
+        JButton btn2 = new JButton("Add / Remove ticket type");
         JButton btn3 = new JButton("Reservations");
         JButton btn4 = new JButton("Gallery");
         JButton btn5 = new JButton("Summary");

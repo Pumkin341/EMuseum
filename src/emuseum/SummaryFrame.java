@@ -22,7 +22,7 @@ public class SummaryFrame extends JFrame {
         add(panel);
 
         JLabel titleLabel = new JLabel("Summary");
-        titleLabel.setHorizontalAlignment(JLabel.CENTER);
+        titleLabel.setHorizontalAlignment(JLabel.CENTER); 
         panel.add(titleLabel, BorderLayout.NORTH);
 
         JPanel centerPanel = new JPanel(new GridLayout(2,1));
