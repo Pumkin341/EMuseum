@@ -22,19 +22,20 @@ public class SellTicketsFrame extends JFrame {
     private JPanel hoursPanel = new JPanel(new GridLayout(3, 1));
     private JLabel hoursLabel = new JLabel("Hours");
     private JRadioButton hours1 = new JRadioButton("9-17");
-    private JRadioButton hours2 = new JRadioButton("17-20");
+    private JRadioButton hours2 = new JRadioButton("17-20 (+5)");
     private JPanel reductionPanel = new JPanel(new GridLayout(4, 1));
-    private JLabel reductionLabel = new JLabel("Reductions");
+    private JLabel reductionLabel = new JLabel("Reductions (50% off)");
     private JRadioButton reduction1 = new JRadioButton("Student");
     private JRadioButton reduction2 = new JRadioButton("Soldier");
     private JRadioButton reduction3 = new JRadioButton("Retired");
     private JPanel taxPanel = new JPanel(new GridLayout(3, 1));
     private JLabel taxLabel = new JLabel("Taxes");
-    private JRadioButton tax1 = new JRadioButton("Photos");
-    private JRadioButton tax2 = new JRadioButton("Film");
+    private JRadioButton tax1 = new JRadioButton("Photos (+2)");
+    private JRadioButton tax2 = new JRadioButton("Film (+3)");
     JPanel checkoutPanel = new JPanel(new GridLayout(1, 2));
     JLabel checkoutLabel = new JLabel("Checkout");
     JButton checkoutBtn = new JButton("Add to Cart");
+    JTextField over10 = new JTextField(15);
     
     String headers1[] = {"Ticket ID", "Name", "Price", "Description"};  
     JTable tableTicketTypes = new JTable(new DefaultTableModel(new Object[][]{}, headers1));
@@ -122,6 +123,9 @@ public class SellTicketsFrame extends JFrame {
         //checkout table
         JScrollPane scrollPane2 = new JScrollPane(tableTickets);
         centerPanel.add(scrollPane2);
+
+        southPanel.add(over10);
+        over10.setEditable(false);
     
         //event listeners
 
@@ -166,7 +170,7 @@ public class SellTicketsFrame extends JFrame {
 
     public void printTicket(){
         if (totalField.getText().equals(""))  {
-            JOptionPane.showMessageDialog(this, "Total price is empty");
+            JOptionPane.showMessageDialog(this, "Calculate the total price.");
             return;
         }
 
@@ -185,7 +189,13 @@ public class SellTicketsFrame extends JFrame {
             totalTickets += Integer.parseInt(model.getValueAt(i, 1).toString());
         }
 
-        if(totalTickets > 10) total = total - total * 0.2;
+        if(totalTickets >= 10) {
+            total = total - total * 0.2;
+            over10.setText("20% discount applied");
+        }
+        else {
+            over10.setText("");
+        }
         totalField.setText(String.valueOf(total));
     }
 
@@ -199,6 +209,11 @@ public class SellTicketsFrame extends JFrame {
             JOptionPane.showMessageDialog(this, "Please enter a number of tickets");
             return;
         }
+        if(getHours().equals("")) {
+            JOptionPane.showMessageDialog(this, "Please select hours");
+            return;
+        }
+
         model2.addRow(new Object[]{model1.getValueAt(selectedRow, 1) , getNumberOfTickets(), model1.getValueAt(selectedRow, 2), getHours(), getReductions(), getTaxes(), getTicketPrice()});
     }
 
